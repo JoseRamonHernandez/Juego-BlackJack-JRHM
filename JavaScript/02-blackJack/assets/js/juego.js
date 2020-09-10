@@ -1,3 +1,5 @@
+
+
 let deck = [];
 const tipos=['C', 'D', 'H', 'S'];
 const especiales=['A', 'J', 'Q', 'K'];
@@ -23,7 +25,7 @@ for(let tipo of tipos)
 
     //console.log(deck);
     deck= _.shuffle(deck);
-    //console.log(deck);
+    console.log(deck);
     return deck;
 }
 
@@ -42,9 +44,33 @@ const pedirCarta = () => {
 
     const carta = deck.pop();
 
-    console.log(deck);
+    //console.log(deck);
     console.log(carta);
     return carta;
 }
 
 pedirCarta();
+
+const valorCarta = (carta) => {
+
+    const valor = carta.substring(0, carta.length -1);
+   // console.log(valor);
+   let puntos=0;
+   if (isNaN (valor))
+   {
+       //console.log('No es un numero');
+        puntos = (valor === 'A') ? 11 : 10;
+        
+   }
+   else{
+       //console.log('Es un numero');
+       puntos = valor*1;
+       
+   }
+   console.log(puntos);
+}
+
+valorCarta( pedirCarta());
+
+
+
